@@ -1,111 +1,57 @@
 let container = document.querySelector("div.container")
 const letras = ['A','S','D','F','G','H','J','K','L']
+const sons = {
+    A : 'sons/boom.wav',
+    S : 'sons/clap.wav',
+    D : 'sons/hihat.wav',
+    F : 'sons/kick.wav',
+    G : 'sons/openhat.wav',
+    H : 'sons/ride.wav',
+    J : 'sons/snare.wav',
+    K : 'sons/tink.wav',
+    L : 'sons/tom.wav',
+}
+
 
 const createDiv = () =>{
-    let contador = 0
-    
-
-    while(contador < 9){
-        container.innerHTML += `<div id="div-item${contador + 1}"> ${letras[contador]} </div>`
-        contador ++
-    }
+    letras.forEach((letter) =>{
+        container.innerHTML += `<div id="${letter}"> ${letter} </div>`
+    } )
 }
+
 createDiv()
 
-const keyA = () => {
-    var audioA = document.createElement('audio')
-    audioA.setAttribute('src' , 'sons/boom.wav')
-    audioA.setAttribute('autoplay' , true)
+const createSoundAndEffect = (key) =>{
+    var audio = new Audio(`${sons[key]}`)
+    audio.play()
+    const div = document.getElementById(`${key}`)
+    div.style.border = '10px solid red'
+    div.style.transform = 'scale(1.2)'
+    div.style.transition = '0.5s ease'
+
+    setTimeout(removeEffect, 200, key)
 }
 
-const keyS = () => {
-    var audioS = document.createElement('audio')
-    audioS.setAttribute('src' , 'sons/clap.wav')
-    audioS.setAttribute('autoplay' , true)  
+const removeEffect = (key) =>{
+    const div = document.getElementById(`${key}`)
+    div.style.border = ''
+    div.style.transform = 'scale(1.0)'
 }
 
-const keyD = () => {
-    var audioD = document.createElement('audio')
-    audioD.setAttribute('src' , 'sons/hihat.wav')
-    audioD.setAttribute('autoplay' , true)   
-}
-
-const keyF = () => {
-    var audioF = document.createElement('audio')
-    audioF.setAttribute('src' , 'sons/kick.wav')
-    audioF.setAttribute('autoplay' , true)  
-}
-
-const keyG = () => {
-    var audioG = document.createElement('audio')
-    audioG.setAttribute('src' , 'sons/openhat.wav')
-    audioG.setAttribute('autoplay' , true)   
-}
-
-const keyH = () => {
-    var audioH = document.createElement('audio')
-    audioH.setAttribute('src' , 'sons/ride.wav')
-    audioH.setAttribute('autoplay' , true)
-}
-
-const keyJ = () => {
-    var audioJ = document.createElement('audio')
-    audioJ.setAttribute('src' , 'sons/snare.wav')
-    audioJ.setAttribute('autoplay' , true)
-}
-
-const keyK = () => {
-    var audioK = document.createElement('audio')
-    audioK.setAttribute('src' , 'sons/tink.wav')
-    audioK.setAttribute('autoplay' , true)
-}
-
-const keyL = () => {    
-    var audioL = document.createElement('audio')
-    audioL.setAttribute('src', 'sons/tom.wav')
-    audioL.setAttribute('autoplay' , true)
-}
-
-
-
-document.addEventListener('keydown' , (Event) => {
-    if(Event.key == 'a' || Event.key == 'A'){
-        keyA()
-        console.log(Event.key)
-    }
-    else if(Event.key == 's' || Event.key == 'S'){
-        keyS()
-        console.log(Event.key)
-    }
-    else if(Event.key == 'd' || Event.key == 'D'){
-        keyD()
-        console.log(Event.key)
-    }
-    else if(Event.key == 'f' || Event.key == 'F'){
-        keyF()
-        console.log(Event.key)
-    }
-    else if(Event.key == 'g' || Event.key == 'G'){
-        keyG()
-        console.log(Event.key)
-    }
-    else if(Event.key == 'h' || Event.key == 'H'){
-        keyH()
-        console.log(Event.key)
-    }
-    else if(Event.key == 'j' || Event.key == 'J'){
-        keyJ()
-        console.log(Event.key)
-    }
-    else if(Event.key == 'k' || Event.key == 'K'){
-        keyK()
-        console.log(Event.key)
-    }
-    else if(Event.key == 'l' || Event.key == 'L'){
-        keyL()
-        console.log(Event.key)
+document.addEventListener('keydown' , (Event) =>{
+    const key = Event.key.toUpperCase()
+    
+    if(key == 'A' || key == 'S' || key == 'S' || key == 'D' || key == 'F' || key == 'G' || key == 'H' || key == 'J' || key == 'K' || key == 'L'){
+        createSoundAndEffect(key)
+        console.log(`A tecla ${key} foi acionada`)
     }
 })
 
+document.addEventListener('click' ,(Event) => {
+    const key = Event.target.id
 
-
+    if(key == 'A' || key == 'S' || key == 'S' || key == 'D' || key == 'F' || key == 'G' || key == 'H' || key == 'J' || key == 'K' || key == 'L'){
+        createSoundAndEffect(key)
+        console.log(`A tecla ${key} foi clicada`)
+    }
+})
