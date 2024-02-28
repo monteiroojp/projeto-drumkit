@@ -13,39 +13,57 @@ const createDiv = () =>{
 createDiv()
 
 const keyA = () => {
-
+    var audioA = document.createElement('audio')
+    audioA.setAttribute('src' , 'sons/boom.wav')
+    audioA.setAttribute('autoplay' , true)
 }
 
 const keyS = () => {
-
+    var audioS = document.createElement('audio')
+    audioS.setAttribute('src' , 'sons/clap.wav')
+    audioS.setAttribute('autoplay' , true)  
 }
 
 const keyD = () => {
-
+    var audioD = document.createElement('audio')
+    audioD.setAttribute('src' , 'sons/hihat.wav')
+    audioD.setAttribute('autoplay' , true)   
 }
 
 const keyF = () => {
-
+    var audioF = document.createElement('audio')
+    audioF.setAttribute('src' , 'sons/kick.wav')
+    audioF.setAttribute('autoplay' , true)  
 }
 
 const keyG = () => {
-
+    var audioG = document.createElement('audio')
+    audioG.setAttribute('src' , 'sons/openhat.wav')
+    audioG.setAttribute('autoplay' , true)   
 }
 
 const keyH = () => {
-
+    var audioH = document.createElement('audio')
+    audioH.setAttribute('src' , 'sons/ride.wav')
+    audioH.setAttribute('autoplay' , true)
 }
 
 const keyJ = () => {
-
+    var audioJ = document.createElement('audio')
+    audioJ.setAttribute('src' , 'sons/snare.wav')
+    audioJ.setAttribute('autoplay' , true)
 }
 
 const keyK = () => {
-
+    var audioK = document.createElement('audio')
+    audioK.setAttribute('src' , 'sons/tink.wav')
+    audioK.setAttribute('autoplay' , true)
 }
 
-const keyL = () => {
-
+const keyL = () => {    
+    var audioL = document.createElement('audio')
+    audioL.setAttribute('src', 'sons/tom.wav')
+    audioL.setAttribute('autoplay' , true)
 }
 
 
