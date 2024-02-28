@@ -28,6 +28,7 @@ const createSoundAndEffect = (key) =>{
     div.style.border = '10px solid red'
     div.style.transform = 'scale(1.2)'
     div.style.transition = '0.5s ease'
+    div.style.borderRadius = '20%'
 
     setTimeout(removeEffect, 200, key)
 }
@@ -36,12 +37,13 @@ const removeEffect = (key) =>{
     const div = document.getElementById(`${key}`)
     div.style.border = ''
     div.style.transform = 'scale(1.0)'
+    div.style.borderRadius = ''
 }
 
 document.addEventListener('keydown' , (Event) =>{
     const key = Event.key.toUpperCase()
     
-    if(key == 'A' || key == 'S' || key == 'S' || key == 'D' || key == 'F' || key == 'G' || key == 'H' || key == 'J' || key == 'K' || key == 'L'){
+    if(key == 'A' || key == 'S' || key == 'D' || key == 'F' || key == 'G' || key == 'H' || key == 'J' || key == 'K' || key == 'L'){
         createSoundAndEffect(key)
         console.log(`A tecla ${key} foi acionada`)
     }
@@ -50,7 +52,7 @@ document.addEventListener('keydown' , (Event) =>{
 document.addEventListener('click' ,(Event) => {
     const key = Event.target.id
 
-    if(key == 'A' || key == 'S' || key == 'S' || key == 'D' || key == 'F' || key == 'G' || key == 'H' || key == 'J' || key == 'K' || key == 'L'){
+    if(key == 'A' || key == 'S' || key == 'D' || key == 'F' || key == 'G' || key == 'H' || key == 'J' || key == 'K' || key == 'L'){
         createSoundAndEffect(key)
         console.log(`A tecla ${key} foi clicada`)
     }
